@@ -16,4 +16,4 @@
 --
 
 -- You can use this file to load seed data into the database using SQL statements
-insert into Trips (id, name, descr, tdate, edate, sloc, dloc, miles, vehi, tinfo, attends, cuser, cdate, muser, mdate) values (0, 'Fall City trip', 'Hwy 9 - Hwy 2 - Hwy 203 - Hwy 202 - Back home.', '2016-08-14 10:30:00', '2016-08-14 12:45:00', 'Bothell, WA', 'Fall City, WA', 80, 'Yamaha FJ-09', 'Drove thru the back roads in Duvall.', 'solo trip', 'GaneshR', '2016-08-18 11:50:00', 'GaneshR','2016-08-18 11:50:00')
+insert into Trips (id, name, descr, tdate, edate, sloc, dloc, miles, vehi, tinfo, attends, atype, cuser, cdate, muser, mdate) values (0, 'Fall City trip', 'Hwy 9 - Hwy 2 - Hwy 203 - Hwy 202 - Back home.', '2016-08-14 10:30:00', '2016-08-14 12:45:00', 'Bothell, WA', 'Fall City, WA', 80, 'Yamaha FJ-09', 'Drove thru the back roads in Duvall.', 'solo trip', 'Touring', 'GaneshR', '2016-08-18 11:50:00', 'GaneshR','2016-08-18 11:50:00')
