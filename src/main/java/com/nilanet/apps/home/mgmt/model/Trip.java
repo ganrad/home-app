@@ -11,6 +11,7 @@ import javax.validation.constraints.Size;
 import java.util.Date;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Max;
 
 @Entity
 @Table(name = "Trips")
@@ -53,8 +54,8 @@ public class Trip implements Serializable {
 	@Column(nullable = false)
 	private Integer miles; // Trip miles
 
-	@Column(length = 50, name = "vehi", nullable = false)
-	@Size(min = 4, max = 50, message = "Vehicle field should contain 4 to 50 characters")
+	@Column(length = 50, name = "vehi")
+	@Max(value = 50, message = "Vehicle field cannot contain more than 50 characters!")
 	private String vehicle; // Vehicle used in the trip
 
 	@Column(length = 100)
@@ -83,6 +84,10 @@ public class Trip implements Serializable {
 	@Column(nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date mdate; // Trip record modify date
+
+	@Column(length = 25, nullable = false)
+	@Size(min = 5, max = 50, message = "Activity type field must contain between 5 to 50 characters (max)")
+	private String atype; // Activity type - cycling, running, touring ...
 
 	public Long getId() {
 		return this.id;
@@ -245,11 +250,17 @@ public class Trip implements Serializable {
 		this.mdate = mdate;
 	}
 
+	public String getAtype() {
+		return atype;
+	}
+
+	public void setAtype(String atype) {
+		this.atype = atype;
+	}
+
 	@Override
 	public String toString() {
-		String result = getClass().getSimpleName() + "; ";
-		if ( id != null )
-			result += "id: " + id + ", ";
+		String result = getClass().getSimpleName() + " ";
 		if (name != null && !name.trim().isEmpty())
 			result += "name: " + name;
 		if (description != null && !description.trim().isEmpty())
@@ -274,6 +285,8 @@ public class Trip implements Serializable {
 			result += ", cuser: " + cuser;
 		if (muser != null && !muser.trim().isEmpty())
 			result += ", muser: " + muser;
+		if (atype != null && !atype.trim().isEmpty())
+			result += ", atype: " + atype;
 		return result;
 	}
 }
