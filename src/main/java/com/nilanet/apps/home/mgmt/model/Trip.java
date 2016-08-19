@@ -55,7 +55,7 @@ public class Trip implements Serializable {
 	private Integer miles; // Trip miles
 
 	@Column(length = 50, name = "vehi")
-	@Max(value = 50, message = "Vehicle field cannot contain more than 50 characters!")
+	@Size(min = 0, max = 50, message = "Vehicle field cannot contain more than 50 characters!")
 	private String vehicle; // Vehicle used in the trip
 
 	@Column(length = 100)
